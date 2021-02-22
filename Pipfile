@@ -8,6 +8,7 @@ pandas = "*"
 pandas-datareader = "*"
 python-dotenv = "*"
 matplotlib = "*"
+jupyter = "*"
 
 [dev-packages]
 
