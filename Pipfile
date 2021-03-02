@@ -9,8 +9,11 @@ pandas-datareader = "*"
 python-dotenv = "*"
 matplotlib = "*"
 jupyter = "*"
+mplfinance = "*"
+ipympl = "*"
 
 [dev-packages]
+rope = "*"
 
 [requires]
 python_version = "3.9"
