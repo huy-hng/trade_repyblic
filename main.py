@@ -31,6 +31,23 @@ df.to_csv('prices/spy.csv')
 # df
 
 # %%
+def calc_mav(arr, rolling_window=50):
+	counter = 1
+	vals = []
+	mav = []
+
+	for val in arr:
+		vals.append(val)
+
+		if counter < rolling_window:
+			mav.append(sum(vals)/counter)
+		else:
+			mav.append(sum(vals[-rolling_window:])/rolling_window)
+
+		counter += 1
+
+	return mav
+
 
 close = df['Close'].values
 high = df['High'].values
@@ -55,23 +72,6 @@ for i, day in enumerate(zipped):
 
 df['atr'] = calc_mav(tr, 20)
 
-# %%
-def calc_mav(arr, rolling_window=50):
-	counter = 1
-	vals = []
-	mav = []
-
-	for val in arr:
-		vals.append(val)
-
-		if counter < rolling_window:
-			mav.append(sum(vals)/counter)
-		else:
-			mav.append(sum(vals[-rolling_window:])/rolling_window)
-
-		counter += 1
-
-	return mav
 
 # %%
 counter = 1
@@ -104,6 +104,7 @@ def get_moving_average(OHLC, window):
 
 mav_long = get_moving_average(OHLC, 200)
 mav_short = get_moving_average(OHLC, 20)
+
 
 
 
@@ -287,7 +288,7 @@ for index, row in df.iterrows():
 
 	last_price = curr_price
 
-print_endresult(baseline_buyer, buyer, last_price)
+print_endresult(money, baseline_buyer, buyer, last_price)
 
 trans = buyer.transactions
 # endregion
