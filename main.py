@@ -78,7 +78,6 @@ def print_endresult(starting_money, baseline_buyer, buyer, last_price):
 	print(f'Baseline to beat: {baseline_profit}')
 	print(f'Improvement compared to baseline:\
 					{round(((buyer_profit / baseline_profit) -1) * 100, 2)}%')
-	print(f'Profit: {round(((buyer_profit / starting_money)-1) * 100, 2)}%')
 
 #endregion
 
@@ -92,10 +91,6 @@ def golden_cross():
 	baseline_buyer = Buyer(money, OHLC)
 
 	mav_window_long = 200
-
-	mav_window_short = 50
-
-
 	prev_up = None
 	vals = []
 	for index, row in df.iterrows():
