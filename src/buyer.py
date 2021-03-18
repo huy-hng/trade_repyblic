@@ -1,3 +1,5 @@
+import math
+
 class Buyer:
 	def __init__(self, starting_money, ohlc):
 		self.money = starting_money
